@@ -19,14 +19,13 @@ Arduino library for HC4067 over I2C with a PCF8574.
 **Experimental**
 
 This library is to use an HC4067 multiplexer by means of a PCF8574 (I2C 8 channel IO).
-
 The HC4067 allows e.g one analog port read up to 16 different analog channels,
 or one digital port to read the state of 16 buttons.
 
-Goal is to reduce the number of pins to use for controlling an HC4067 multiplexer.
+Goal of this library is to reduce the number of pins to use for controlling an HC4067 multiplexer.
 As there can be up to 16 PCF8574's on one I2C bus, this would allow to (in theory) 
 control 16 HC4067 multiplexers over one I2C bus.
-The price of less pins used is performance as an I2C write is (much) slower than
+The price of less pins used is performance as an I2C write is much slower than
 setting the IO pins directly.
 
 The core API of the library is kept similar to my HC4067 library, (see related)
@@ -34,13 +33,13 @@ to allow easy transition. The constructor and I2C part is of course different.
 
 The library is not tested with hardware yet (project pending).
 
-The current version of this library has no error handling.
+The current version of this library has no error handling (in prep).
 
-The current version of this library does not implement a function for the three 
-remaining IO lines.
+The current version of this library does not implement any function 
+to control for the three remaining IO lines.
 
 This library should work with a PCF8575 too although that would have 11 unused pins.
-The PCF8575 is not tested (see future section).
+(see future section).
 
 
 As always feedback is welcome.
@@ -95,7 +94,7 @@ Note: one could add a LED (+resistor) to the Enable line to have visual feedback
 
 ### Tested
 
-TODO: Test on Arduino UNO and ESP32
+TODO.
 
 
 ## I2C
@@ -188,7 +187,7 @@ Enabling / disabling does not change the channel.
 - investigate impact implement free IO pins?
   - readPin(n), writePin(n, HIGH/LOW);
   - need a variable to cache the write mask?
-
+- is the SetChannel API intuitive?
 
 #### Could
 
@@ -196,7 +195,7 @@ Enabling / disabling does not change the channel.
   - API would need some "sub addressing"
 - investigate MCP23S08 version as SPI is much faster
   - nr of lines reduced?
-- investigate other multiplexers
+- investigate other multiplex libs
   - PCF8574 can control two HC4051 (3 select lines + Enable)
   - PCF8574 can control two HC4052 (2 select lines + Enable)
   - PCF8574 can control two HC4053 (2 select lines + Enable)
