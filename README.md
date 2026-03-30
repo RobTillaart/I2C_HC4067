@@ -29,6 +29,8 @@ setting the IO pins directly.
 The core API of the library is kept similar to my HC4067 library, (see related)
 to allow easy transition. The constructor and I2C part is of course different.
 
+The library is not tested with hardware yet (project pending).
+
 The current version of this library has no error handling.
 
 The current version of this library does not implement a function for the three 
