@@ -29,7 +29,6 @@ public:
     _channel   = 0;
     //  to force write.
     _lastValue = 0x10;
-    this->disable();
   }
 
   bool begin()
@@ -38,6 +37,7 @@ public:
     {
       return false;
     }
+    this->disable();
     return true;
   }
 
