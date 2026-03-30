@@ -151,7 +151,7 @@ too if they are behind the multiplexer.
 - **bool setChannel(uint8_t channel, bool disable = true)** set the current channel.
 Valid values for channel are 0..15, returns false if channel out of range.  
 If the channel is already selected it does not change it.
-Note the four channels may not change at the very same moment, 
+Note the four select lines may not change at the very same moment, 
 possibly resulting in an invalid selection for a (very short) time.  
 The disable flag can be set to false so the device is not disabled during channel switching.
 Default the device is disabled during channel switching to prevent (very short) ghost channels.
@@ -159,6 +159,9 @@ Note that a call to **setChannel()** will always enable the device again.
 Note the device cannot be disabled if there is no enable pin configured.
 - **uint8_t getChannel()** returns the current channel 0..15.
 The selected channel is also returned when the multiplexer is disabled.
+
+The setChannel behavior needs investigation as the PCF8574 probably sets
+all selection lines simultaneously.
 
 
 ### Enable
