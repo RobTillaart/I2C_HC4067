@@ -20,6 +20,9 @@ Arduino library for HC4067 over I2C with a PCF8574.
 
 This library is to use an HC4067 multiplexer by means of a PCF8574 (I2C 8 channel IO).
 
+The HC4067 allows e.g one analog port read up to 16 different analog channels,
+or one digital port to read the state of 16 buttons.
+
 Goal is to reduce the number of pins to use for controlling an HC4067 multiplexer.
 As there can be up to 16 PCF8574's on one I2C bus, this would allow to (in theory) 
 control 16 HC4067 multiplexers over one I2C bus.

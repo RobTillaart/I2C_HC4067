@@ -1,10 +1,9 @@
 //
-//    FILE: I2C_HC4067_write.ino
+//    FILE: I2C_HC4067_demo.ino
 //  AUTHOR: Rob Tillaart
 // PURPOSE: Demo for HC4067 16 channel (simple) multiplexer
 //     URL: https://github.com/RobTillaart/HC4067
-//
-//  pin 8 to signal pin HC4067
+
 
 #include "I2C_HC4067.h"
 
@@ -24,33 +23,19 @@ void setup()
   Wire.setClock(400000);
   mp.begin();
   delay(100);
-
-  //  IO pin for multiplexer
-  pinMode(8, OUTPUT);
-  digitalWrite(8, HIGH);
-
-  Serial.println(mp.isEnabled());
-  mp.enable();
-  Serial.println(mp.isEnabled());
-  mp.disable();
-  Serial.println(mp.isEnabled());
-  mp.enable();
-  delay(1000);
 }
 
 
 void loop()
 {
-  // rotate over the channels
   for (uint8_t channel = 0; channel < 16; channel++)
   {
     mp.setChannel(channel);
-    Serial.println(channel);
-    delay(250);
+    Serial.print(analogRead(A0));
+    Serial.print("\t");
+    delay(100);
   }
-
-  //  Toggle the OUTPUT
-  digitalWrite(8, digitalRead(8));
+  Serial.println();
 }
 
 
